@@ -1,0 +1,64 @@
+<link rel="stylesheet" type="text/css" href="/static/admin/css/base.css">
+<link rel="stylesheet" type="text/css" href="/static/admin/css/dashboard.css">
+<link rel="stylesheet" type="text/css" href="/static/admin/css/responsive.css">
+<link rel="stylesheet" type="text/css" href="/static/admin/css/fonts.css">
+
+
+
+<body class=" dashboard" data-admin-utc-offset="0">
+    <!-- Container -->
+    <div id="container">
+        <!-- Header -->
+        <div id="header">
+            <div id="branding">
+                <h1 id="site-name"><a href="/admin/">Django デモサイト</a></h1>
+            </div>
+            <div id="user-tools"></div>
+        </div>
+        <!-- END Header -->
+
+        <!-- Content -->
+        <div id="content" class="colMS">
+
+            <h1>記事一覧</h1>
+            <div id="content-main">
+                <div class="app-app module">
+                    {% if posts %}
+                    <table>
+                        <caption>
+                            <a href="/admin/app/" class="section" title="App アプリケーション内のモデル">App</a>
+                        </caption>
+                        <tbody>
+                            {% for post in posts %}
+                            <tr class="model-mst_post_statuses">
+                                <td scope="row">{{ post.modified|date:"Y/m/d" }}</a></td>
+                                <th><a href="{% url 'app:detail' post.id %}">{{ post.title }}</a></th>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    {% else %}
+                    <p>記事はありません。</p>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div id="content-related">
+                <div class="module" id="recent-actions-module">
+                    <h2>最近行った操作</h2>
+                    <h3>自分の操作</h3>
+                    <ul class="actionlist">
+                        <li class="addlink">
+                            <a href="/admin/app/posts/2/change/">Posts object (2)</a>
+                            <br>
+                            <span class="mini quiet">Posts</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <br class="clear">
+        </div>
+        <!-- END Content -->
+        <div id="footer"></div>
+    </div>
+    <!-- END Container -->
+</body>
