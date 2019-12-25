@@ -16,7 +16,7 @@ class Posts(models.Model):
     content = models.TextField()
     post_status_code = models.ForeignKey(Mst_Post_Statuses, on_delete=models.CASCADE)
     created = models.DateTimeField('date published')
-    modofied = models.DateTimeField('date published')
+    modified = models.DateTimeField('date published')
 
     def __str__(self):
         return self.title

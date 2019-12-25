@@ -20,26 +20,10 @@
         <!-- Content -->
         <div id="content" class="colMS">
 
-            <h1>記事一覧</h1>
+            <h1>{{ post.title }}</h1>
             <div id="content-main">
-                <div class="app-app module">
-                    {% if posts %}
-                    <table>
-                        <caption>
-                            <a href="/admin/app/" class="section" title="App アプリケーション内のモデル">App</a>
-                        </caption>
-                        <tbody>
-                            {% for post in posts %}
-                            <tr class="model-mst_post_statuses">
-                                <td scope="row">{{ post.modified|date:"Y/m/d" }}</a></td>
-                                <th><a href="{% url 'app:detail' post.id %}">{{ post.title }}</a></th>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-                    {% else %}
-                    <p>記事はありません。</p>
-                    {% endif %}
-                </div>
+                <div class="quiet">{{ post.modified|date:"Y/m/d f" }}</div>
+                <div>{{ post.content }}</div>
             </div>
 
             <div id="content-related">
@@ -56,9 +40,11 @@
                 </div>
             </div>
             <br class="clear">
+            <a href="{% url 'app:index' %}">戻る</a>
         </div>
         <!-- END Content -->
         <div id="footer"></div>
     </div>
     <!-- END Container -->
 </body>
+<a href=""></a>
